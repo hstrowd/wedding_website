@@ -1,0 +1,38 @@
+<%= form_for(@suggested_question) do |f| %>
+  <% if @suggested_question.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@suggested_question.errors.count, "error") %> prohibited this suggested question from being saved:</h2>
+
+      <ul>
+      <% @suggested_question.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <br/>
+  <table class="trivia_question_suggestion_entry_form">
+    <tr>
+      <td class="label"><%= f.label 'Name:*' %></td>
+      <td><%= f.text_field :author, :required => true %></td>
+    </tr>
+    <tr>
+      <td class="label"><%= f.label 'Email:' %></td>
+      <td><%= f.text_field :email, :required => false %></td>
+    </tr>
+    <tr>
+      <td class="label"><%= f.label 'Suggested Question:*' %></td>
+      <td><%= f.text_area :suggested_question, :rows => 3, :required => true %></td>
+    </tr>
+    <tr>
+      <td class="label"><%= f.label 'Suggested Answer:*' %></td>
+      <td><%= f.text_area :suggested_answer, :rows => 3, :required => true %></td>
+    </tr>
+    <tr>
+      <td class="label"></td>
+      <td class="actions"><%= f.submit 'Submit Suggestion' %></td>
+    </tr>
+  </table>
+
+<% end %>

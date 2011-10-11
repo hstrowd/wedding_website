@@ -1,0 +1,31 @@
+.admin_page h2 {
+    margin-left: 40px;
+}
+
+.admin_page table{
+    width: 100%;
+    border-spacing: 0;
+    border: 1px solid #AAAAAA;
+}
+.admin_page table th{
+    border: 1px solid #AAAAAA;
+    padding: 3px;
+}
+.admin_page table td{
+    border: 1px solid #AAAAAA;
+    padding: 3px;
+}
+
+
+.admin_page .expansion_icon {
+    float: left;
+    margin: 8px;
+}
+.admin_page .collapsible_container {
+    margin: 20px 0px;
+    border: solid 1px;
+    padding: 10px
+}
+.admin_page .collapsible_container h1 {
+    margin-top: 0px;
+}

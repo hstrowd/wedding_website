@@ -1,0 +1,37 @@
+body {
+    font-family: Helvetica,Verdana,Arial,sans-serif;
+    font-size: 14px;
+    background-color: #CCEEEE;
+    margin: 0px;
+}
+
+a {
+    color: #99EEFF;
+}
+img.picture {
+    margin: 15px;
+    border: 1px solid #FFFFFF;
+}
+img.left {
+    float: left;
+}
+img.right {
+    float: right;
+}
+
+
+.invisible {
+    display: none;
+}
+
+.clear {
+    clear: both;
+}
+
+
+#footer {
+   text-align: center;
+   font-size: 11px;
+   color: #555555;
+   margin: 8px;
+}

@@ -1,0 +1,46 @@
+  <%= form_for(@user) do |f| %>
+    <% if @user.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+        <ul>
+        <% @user.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <br/>
+    <div class="field">
+      <%= f.label :name %><br />
+      <%= f.text_field :name %>
+    </div>
+    <br/>
+    <div class="field">
+      <%= f.label :password %><br />
+      <%= f.password_field :password %>
+    </div>
+
+    <br/>
+
+    <div class="field">
+      <%= f.label :enabled %>: 
+      <%= if @user.name != 'admin' then f.check_box(:enabled) else 'true' end %>
+    </div>
+
+    <br/>
+
+    <div class="field">
+      <%= f.label :roles %><br />
+      <%= select_tag('roles', 
+                     options_for_select(Role.all.collect { |role| [role.name.to_s, role.id] }, :selected => @user.roles.collect{ |role| role.id }, :multiple => true, :size => 5), 
+		     {:size => 5, :multiple => true}) %>
+    </div>
+
+    <br/>
+
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+  <% end %>

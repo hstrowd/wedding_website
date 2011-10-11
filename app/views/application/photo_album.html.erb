@@ -1,0 +1,62 @@
+<% content_for(:head) do %>
+  <!-- Using FancyBox for our photo album. -->
+  <script type="text/javascript"> 
+    $(document).ready(function() {
+      function formatTitle(title, currentArray, currentIndex, currentOpts) {
+        return '<div id="fancybox_title">Image ' + (currentIndex + 1) + ' of ' + currentArray.length + '</div><div class="clear"></div>';
+      }
+
+      <% photo_album_gallery(@page).each do |album_info| %>
+      $("a[rel=<%= album_info[:name] %>_album]").fancybox({
+        'cyclic'        : true,
+        'titlePosition' : 'inside',
+        'titleFormat'   : formatTitle,
+        'transitionIn'  : 'fade',
+        'transitionOut' : 'fade'
+      });
+
+      <% end %>
+    });
+
+  </script>
+<% end %>
+
+<% content_for(:title) do %>
+  <div class="page_title"><%= image_tag('titles/photo_album(48).png') %></div>
+<% end %>
+
+<div class="albums"> 
+  <% photo_album_gallery(@page).each do |album_info| %>
+    <div class="album <%= album_info[:name]  %>">
+      <%= image = "photo_album/#{album_info[:name]}/#{album_info[:thumb]}"
+  	link_to(image_tag(image, :class => 'thumb mat'), image_path(image), :rel => "#{album_info[:name]}_album", :title => "#{album_info[:images].size + 1} Images") %>
+      <br/>
+      <%= album_info[:title] %>
+    </div>
+  <% end %>
+  
+  <% photo_album_gallery(@page).each do |album_info| %>
+    <div class="invisible">
+      <% album_info[:images] && album_info[:images].each do |filename| %>
+        <%= image = "photo_album/#{album_info[:name]}/#{filename}"
+  	  link_to('', image_path(image), :rel => "#{album_info[:name]}_album") %>
+      <% end %>
+    </div>
+  <% end %>
+
+  <div class="clear"></div>
+</div>
+
+<br/>
+
+<div class="page_nav">
+  |
+  <% num_photo_album_pages.times do |index| 
+       page = (index + 1) 
+       if(page == @page) %>
+      <div class="current_page"><%= page %></div> |
+    <% else %>
+      <%= link_to(page, photo_album_path({:page => page})) %> |
+    <% end %>
+  <% end %>
+</div>

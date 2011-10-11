@@ -1,0 +1,25 @@
+<div id="navigation">
+  <% navigation_hash.each_pair do |name, id| 
+       if(@nav_id == id) %>
+    <div class="nav selected">
+      <%= link_to(name, "/#{id}") %>
+      <div class="cur_page selected"></div>
+    </div>
+    <% else %>
+    <div class="nav">
+      <%= link_to(name, "/#{id}") %>
+      <div class="cur_page"></div>
+    </div>
+  <%   end
+     end %>
+
+  <% if(admin_user?) %>
+    <hr/>       
+    <% admin_navigation_hash.each_pair do |name, path| %>
+    <div class="nav">
+      <%= link_to(name, path[0]) %>
+      <div class="cur_page"></div>
+    </div>     
+  <%   end
+     end %>
+</div>

@@ -1,0 +1,522 @@
+#full_page {
+    width: 875px;
+    margin: auto auto;
+}
+
+#main_body {
+    height: 100%;
+    background: none repeat scroll 0 0 #443322;
+    border: 1.5px solid #DDCC99;
+}
+
+#header {
+    background: none repeat scroll 0 0 #443322;
+}
+#header .names {
+    text-align: right;
+    padding: 5px 0px;
+}
+#header .banner {
+    background: -moz-linear-gradient(90deg, #6687b5, #4f7bb6);
+    background: -webkit-gradient(linear, left top, left bottom, from(#4f7bb6), to(#6687b5));
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#4f7bb6', endColorstr='#6687b5');
+    border-top: 2px solid #FFFFFF;
+    border-bottom: 2px solid #FFFFFF;
+}
+#header .banner .bg_image {
+    height: 225px;
+    background: url("../images/header/orchids.jpg") no-repeat scroll 0 0 transparent;
+    padding: 0px 20px;
+    clear: both;
+}
+#header .banner .background {
+    float: right;
+}
+#header .banner .main_image {
+    margin-top:13px;
+}
+#header .banner .main_image img {
+    width: 170px;
+}
+#header .wedding_date {
+    background: none repeat scroll 0 0 #AAEEEE;
+    padding: 3px;
+    text-align: center;
+    font-size: 16px;
+    color: #222222;
+    border-bottom: 2px solid #FFFFFF;    
+}
+
+.mat {
+    background: none repeat scroll 0 0 #FFFFFF;
+    float: right;
+    position: relative;
+    padding: 10px;
+    margin: auto 25px;
+    border: none;
+    -moz-box-shadow: -5px 5px 10px #222222;
+    -webkit-box-shadow: -5px 5px 10px #222222;
+    box-shadow: -5px 5px 10px #222222;
+}
+
+#navigation {
+    width: 175px;
+    float:left;
+    padding-top: 10px;
+    text-align: right;
+}
+
+.nav {
+    font-size: 13px;
+    color: #DDDDDD;
+    margin: 5px;
+}
+.nav a {
+    text-decoration: none;
+    color: #DDDDDD;
+}
+.nav.selected a {
+    font-weight: bold;
+    color: #BBDDDD;
+}
+.nav a:hover {
+    font-weight: bold;
+}
+.nav .cur_page {
+    width: 6px;
+    height: 7px;
+    margin: 6px;
+    position: relative;
+    top: -2px;
+    float: right;
+}
+.nav .cur_page.selected {
+    background: none repeat scroll 0 0 #BBDDDD;
+}
+
+#content {
+    width: 495px;
+    float: left;
+    min-height: 500px;
+    padding: 20px;
+    border-left: 1px solid #CCCCCC;
+    color: #FFFFFF;
+}
+
+.page_title {
+    fonts-family: Corinthia;
+    font-size: 24px;
+    min-height: 70px;
+}
+
+#notice {
+    color: #333333;
+    font-size: 18px;
+    background-color: #FEFFAA;
+    border: 1px solid #FDFF55;
+}
+#error {
+    color:red;
+}
+#error h3 {
+    margin: 2px 0px;
+}
+#error ul {
+    margin: 2px 0px;
+}
+
+#image_column {
+    margin: 40px 0px;
+}
+#image_column img {
+    height: 100px;
+    width: 100px;
+    margin: 20px 20px;
+    -moz-box-shadow: -5px 5px 10px #222222;
+    -webkit-box-shadow: -5px 5px 10px #222222;
+    box-shadow: -5px 5px 10px #222222;
+}
+
+.img_row {
+    text-align: center;
+}
+.img_col {
+    float: left;
+}
+
+/*
+ * Welcome
+ */
+.signature {
+    margin-left: 50px;
+}
+
+/*
+ * About Us
+ */
+.bride_heading {
+    margin-bottom: 5px;
+}
+
+
+/*
+ * The Proposal
+ */
+#her_version .proposal_header{
+    margin-bottom: 10px;
+}
+#his_version {
+    margin-top: 35px;
+}
+
+
+/*
+ * Bridal Party
+ */
+.bridal_party {
+    margin-left: 20px;
+}
+.groomsmen {
+    margin-top: 30px;
+}
+.groomsmen .bridal_party_heading {
+    margin-bottom: -20px;
+}
+
+.bridal_party_member {
+    min-height: 180px;
+    margin: 20px 0px 10px 10px;
+}
+.bridal_party_member .headshot {
+    height: 125px;
+    width: 125px;
+    float: left;
+    margin: 30px 10px;
+    -moz-box-shadow: -5px 5px 10px #222222;
+    -webkit-box-shadow: -5px 5px 10px #222222;
+    box-shadow: -5px 5px 10px #222222;
+}
+.party_member_info .name {
+    padding: 10px;
+}
+.bridal_party_member .bio {
+    padding: 0px 0px 0px 135px;
+}
+
+
+/*
+ * Travel
+ */
+div#event_travel {
+    margin: 20px 10px 10px 20px;
+}
+div#event_travel_intro {
+    margin: 15px 10px 10px 10px;
+}
+
+div.event_travel_airline {
+    margin: 10px 20px 20px 20px;
+}
+
+img.airline_logo {
+    float: left;
+    margin: 10px 10px 10px 70px;
+}
+
+div.event_travel_airline div.airline_name {
+    padding: 15px 25px;
+    font-size: 24px;
+    text-align: center;
+}
+div.event_travel_airline div.airline_program {
+    margin: 5px 10px;
+}
+
+
+div#group_travel {
+    margin: 30px 10px 10px 20px;
+}
+div#group_travel_intro {
+    margin: 10px 10px 10px 10px;
+}
+
+div.group_travel_name {
+    margin: 5px 35px;
+}
+
+
+/*
+ * Accommodations
+ */
+div#accommodations_list {
+    padding: 10px 0px;
+}
+div#accommodations_list li {
+    margin: 10px 0px;
+}
+
+.accommodation_option {
+    margin-top: 25px;
+}
+
+.accommodation_img {
+    float: left;
+    width: 125px;
+}
+.accommodation_info .title {
+    padding: 0px 5px 5px 170px;
+    font-size: 22px;
+}
+.accommodation_info .header {
+    padding-right: 5px;
+    float: left;
+    font-weight: bold;
+}
+.accommodation_info .room_count {
+    padding-top: 5px;
+    float: left;
+    font-size: 12px;
+}
+.accommodation_info .price_range {
+    padding-top: 5px;
+    padding-right: 20px;
+    float: right;
+    font-size: 12px;
+}
+.accommodation_info .description {
+    padding-top: 30px;
+    padding-left: 158px;
+}
+
+
+/*
+ * Activities
+ */
+.activity_list {
+    margin-bottom: 50px;
+}
+.activity_list li {
+    margin: 5px 0px;
+}
+
+/*
+ * Rehearsal Dinner
+ */
+img.rehearsal_dinner.vert {
+    height: 165px;
+    margin: 10px;
+}
+img.rehearsal_dinner.horiz {
+    width: 470px;
+}
+
+
+/*
+ * Rehearsal Dinner
+ */
+img.wedding_day_brunch.vert {
+    width: 200px;
+    margin: 10px;
+}
+img.wedding_day_brunch.horiz {
+    width: 240px;
+}
+
+
+/*
+ * Ceremony & Reception
+ */
+img.ceremony.vert {
+    height: 150px;
+    margin: 5px 15px;
+}
+
+/*
+ * Registries
+ */
+.note {
+    font-size: 11px;
+    margin: 10px 15px;
+}
+.registry_retailer {
+    margin: 20px 10px 20px 30px;
+}
+.registry_retailer img {
+    border: none;
+     -moz-box-shadow: -5px 5px 10px #222222;
+     -webkit-box-shadow: -5px 5px 10px #222222;
+     box-shadow: -5px 5px 10px #222222;
+}
+
+
+/*
+ * Photo Album
+ */
+.albums {
+    text-align: center;
+}
+.album {
+    height: 180px;
+    float: left;
+    margin: 10px 5px;
+    text-align: center;
+}
+.thumb {
+    max-height: 150px;
+    max-width: 150px;
+    margin-bottom: 10px;
+}
+.album_img {
+    max-height: 600px;
+    max-width: 600px;
+}
+#fancybox_title {
+    float: right;
+}
+.page_nav {
+    min-width: 200px;
+    text-align: center;
+}
+.page_nav .current_page {
+    display:inline;
+    font-weight: bold;
+    color: #BBDDDD;
+}
+
+
+/*
+ * Video Album
+ */
+
+.video_album {
+    height: 230px;
+}
+
+/*
+ * Guestbook
+ */
+.instructions {
+    margin: 10px 0px;
+}
+table.guestbook_entry_form {    
+    margin: 10px 0px 30px;
+}
+table.guestbook_entry_form tr {
+    vertical-align: top;
+}
+table.guestbook_entry_form td.label {
+    padding: 0px 10px;
+}
+
+.guestbook_entry {
+    padding: 20px 10px;
+    border-top: 1px solid #AAAAAA;
+}
+.guestbook_entry .entry_title {
+    width: 365px;
+    float: left;
+    font-size: 24px;
+}
+.guestbook_entry .entry_date {
+    width: 75px;
+    margin: 5px 20px 5px 20px;
+    float: right;
+    font-size: 12px;
+}
+.guestbook_entry .entry_message {
+    margin: 15px;
+}
+.guestbook_entry .entry_author {
+    margin-left: 300px;
+    font-style: italic;
+}
+
+
+
+/*
+ * Quizzes
+ */
+.quiz_list {
+    padding-top: 2px;
+}
+
+.quiz_list li {
+    margin: 10px;
+}
+
+.suggestions_request{
+    margin: 25px 0px;
+}
+
+
+div.trivia_questions {
+    padding-top: 5px;
+}
+div.trivia_questions .choices {
+    margin: 8px 15px 25px 15px;
+}
+
+
+.quiz_result {
+    margin-top: 15px;
+}
+.quiz_result .quiz_score {
+    text-align: center;
+}
+.quiz_result .quiz_score.good {
+    font-size: 38px;
+    color: green;
+}
+.quiz_result .quiz_score.ok {
+    font-size: 28px;
+    color: yellow;
+}
+.quiz_result .quiz_score.bad {
+    font-size: 18px;
+    color: red;
+}
+.quiz_result .encouragement {
+    width: 400px;
+    margin-left: 50px;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.try_again {
+    margin: 30px 0px;
+}
+
+.result_details li table {
+    margin: 8px 15px 25px 10px;
+}
+.result_details li table td.label{
+    width: 115px;
+    text-align: right;
+    font-style: italic;
+}
+.result_details li table td.selections{
+    padding-left: 15px;
+}
+.result_details li table td.result{
+    padding-left: 15px;
+}
+.result_details li table td.result.correct{
+    color: green;
+}
+.result_details li table td.result.incorrect{
+    color: red;
+}
+
+
+/**
+ * Quiz Question Suggestion
+ */
+table.trivia_question_suggestion_entry_form {    
+    margin: 10px 0px 30px;
+}
+table.trivia_question_suggestion_entry_form tr {
+    vertical-align: top;
+}
+table.trivia_question_suggestion_entry_form td.label {
+    padding: 0px 10px;
+}

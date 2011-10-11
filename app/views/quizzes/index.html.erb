@@ -1,0 +1,23 @@
+<% content_for(:title) do %>
+  <div class="page_title"><%= image_tag('titles/quizzes(48).png') %></div>
+<% end %>
+<div class="instructions">
+  Choose one of the quizzes below. There are three levels of difficulty, with each quiz including of 10 unique questions. 
+</div>
+<div class="note">
+These quizzes are completely anonymous. You do not give your name at any time and there is no way for them to be tracked back to you. We record the resulting scores to provide the averages, which are the numbers in the parentheses.
+</div>
+
+
+<div class="quiz_list">
+  <ul>
+    <% @quizzes.each do |quiz| %>
+      <li><%= link_to(quiz.title, quiz_path(quiz.id)) %> (<%= quiz.avg_score ? "#{(quiz.avg_score * 100).round}%" : "N/A" %>)</li>
+    <% end %>
+  </ul>
+</div>
+
+
+<div class="suggestions_request">
+  If you know of any questions that might be nice additions to these quizzes, please use the <%= link_to('quiz question suggestion form', new_trivia_question_suggestion_path) %> to let us know.
+</div>

@@ -1,0 +1,15 @@
+<div id="header">
+  <div class="names"> <%= image_tag('header/names(corinthian_51).png') %></div>
+
+  <div class="banner">
+    <div class="bg_image">
+
+      <div class="mat main_image">
+	<%= image_tag('header/main_photo.jpg') %>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="wedding_date"><%= wedding_date.strftime("%A, %B %d %Y") %> - <%= (wedding_date - Date.today).to_i %> days to go!</div>
+</div>

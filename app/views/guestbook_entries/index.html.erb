@@ -1,0 +1,20 @@
+<% content_for(:title) do %>
+  <div class="page_title"><%= image_tag('titles/guestbook(48).png') %></div>
+<% end %>
+<div class="instructions">
+  Leave us a message!
+</div>
+
+<%= render 'form' %>
+
+<div class="guestbook_entry_list">
+  <% @entries.each do |entry| %>
+     <div class="guestbook_entry">
+        <div class="entry_title"><%= h(entry.title) %></div>
+	<div class="entry_date"><%= entry.created_at.strftime("%m-%d-%Y") %></div>
+	<div class="clear"></div>
+        <div class="entry_message"><%= h(entry.message).gsub("\n", "<br\>") %></div>
+        <div class="entry_author">- <%= h(entry.author) %></div>
+     </div>
+  <% end %>
+</div>

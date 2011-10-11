@@ -1,0 +1,16 @@
+Use this README file to introduce your application and point to useful places in the API for learning more.
+Run "rake doc:app" to generate API documentation for your models, controllers, helpers, and libraries.
+
+
+Steps required to get the app deployed:
+ - Install RVM:
+   - Run: bash < <(curl -s https://rvm.beginrescueend.com/install/rvm)
+ - Use RVM to install Ruby 1.9.2
+ - Install bundler
+   - gem install bundler
+ - Install postgres
+   - sudo port install rb-postgres
+ - Add postgres bin directory to path.
+ - Install this app's bundle:
+   - bundle install
+ - See dev notes

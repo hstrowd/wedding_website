@@ -1,0 +1,29 @@
+<% content_for(:title) do %>
+  <div class="page_title"><%= image_tag('titles/video_album(48).png') %></div>
+<% end %>
+
+<div class="albums"> 
+  <% video_album_gallery(@page).each do |album_info| %>
+    <div class="album video_album <%= album_info[:name]  %>">
+      <%= image = "video_album/#{album_info[:name]}.png"
+	  video = "#{album_info[:title]}.#{album_info[:file_type]}"
+  	link_to(image_tag(image, :class => 'thumb mat'), video_path(video), :rel => "#{album_info[:name]}_album", :title => "#{album_info[:title]}") %>
+      <br/>
+      <%= album_info[:title] %>
+    </div>
+  <% end %>
+
+  <div class="clear"></div>
+</div>
+
+<div class="page_nav">
+  |
+  <% num_video_album_pages.times do |index| 
+       page = (index + 1) 
+       if(page == @page) %>
+      <div class="current_page"><%= page %></div> |
+    <% else %>
+      <%= link_to(page, video_album_path({:page => page})) %> |
+    <% end %>
+  <% end %>
+</div>

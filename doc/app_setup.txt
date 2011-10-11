@@ -1,0 +1,10 @@
+Steps:
+ - Install psql
+ - install rvm
+ - rvm install 1.9.2
+ - gem install bundler 
+ - bundle install
+ - update the pg_hba.conf file to trust all local users.
+ - Change to use syck YAML
+ - create user sarrison with password 'password';
+ - alter user sarrison createdb;

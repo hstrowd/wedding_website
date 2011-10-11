@@ -1,0 +1,42 @@
+<% content_for(:title) do %>
+  <div class="page_title"><%= image_tag('titles/quiz_results(48).png') %></div>
+<% end %>
+<div class="quiz_result">
+  Your score was:
+
+  <div class="quiz_score <%= @quiz_attempt.grade %>">
+    <%= (@quiz_attempt.score * 100).to_i %>%
+  </div>
+  <div class="encouragement">
+    <%= @quiz_attempt.encouragement %>
+  </div>
+</div>
+
+<div class="try_again">
+  <%= link_to('Click here', quizzes_path) %> to head back to the start and try another quiz.
+</div>
+
+
+<div class="result_details">
+  Full details from your quiz:
+  <ol>
+    <% @quiz_attempt.trivia_question_attempts.each do |question_attempt| %>
+      <li>
+	<%= question_attempt.trivia_question.question %>
+	<% result = question_attempt.correct ? 'correct' : 'incorrect' %>
+	<div class="question_details">
+	  <table>
+	    <tr>
+	      <td class="label">Your Selection(s):</td> <td class="selections"><%= question_attempt.selection_to_s %></td>
+	    </tr>
+	    <tr>
+	      <td class="label">Result:</td> <td class="result <%= result %>"><%= result.humanize %></td>
+	    </tr>
+	  </table>
+	</div>
+      </li>
+    <% end %>
+  </ol>
+</div>
+
+

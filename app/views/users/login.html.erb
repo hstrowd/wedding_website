@@ -1,0 +1,22 @@
+<% content_for(:title) do %>
+  <%= image_tag('login/welcome_to_sarrison(74).png', :id => 'welcome_text') %>
+  <br/>
+<% end %>
+
+<div id="login"> 
+  <%= format_picture('login/sara_young.jpg', :class => 'left', :width => 125, :style => 'margin-top: 40px;') %>
+  <%= format_picture('login/couple_now.jpg', :class => 'center', :width => 175) %>
+  <%= format_picture('login/harrison_young.jpg', :class => 'right', :width => 125, :style => 'margin-top: 40px;') %>  
+
+  <br/>
+  <br/>
+  <div class="authentication_form"> 
+    <%= form_tag :controller => 'users', :action => 'authenticate' %>
+    <%= label(:login, :password) %>: <%= password_field(:login, :password, :size => 20, :autofocus => true) %><br/>
+
+    <br/>
+
+    <%= submit_tag('Continue...') %>
+  </div>
+</div>
+

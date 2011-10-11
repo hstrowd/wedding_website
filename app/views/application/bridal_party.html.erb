@@ -1,0 +1,36 @@
+<% content_for(:title) do %>
+  <div class="page_title"><%= image_tag('titles/bridal_party(48).png') %></div>
+<% end %>
+
+<div class="bridal_party">
+  <div class="bridesmaids">
+    <div class="bridal_party_heading"><%= image_tag('bridal_party/bridesmaids(36).png') %></div>
+    <% bridesmaids_info.each do |info| %>
+      <div class="bridal_party_member">
+        <%= image_tag("bridal_party/headshots/#{info[:name]}.jpg", :class => 'headshot') %>
+	<div class="bridal_party_member">
+          <div class="name"><%= image_tag("bridal_party/names/#{info[:name]}(24).png") %></div>
+          <div class="bio"><%= info[:bio] %></div>
+	</div>
+      </div>
+    <% end %>
+    <div class="clear"></div>
+  </div>
+  <br/>
+  
+  <div class="groomsmen">
+    <div class="bridal_party_heading"><%= image_tag('bridal_party/groomsmen(36).png') %></div>
+  
+    <% groomsmen_info.each do |info| %>
+      <div class="bridal_party_member">
+        <%= image_tag("bridal_party/headshots/#{info[:name]}.jpg", :class => 'headshot') %>
+	<div class="party_member_info">
+          <div class="name"><%= image_tag("bridal_party/names/#{info[:name]}(24).png") %></div>
+          <div class="bio"><%= info[:bio] %></div>
+	</div>
+      </div>
+    <% end %>
+    <div class="clear"></div>
+  </div>
+</div>
+

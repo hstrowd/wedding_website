@@ -1,0 +1,28 @@
+Notes:
+ - For samples of corinthian font: http://www.fontshop.com/fonts/singles/ihof/p22_corinthia_regular/?utm_source=mar08bEmail&utm_medium=email&utm_content=Corinthia&utm_term=em&utm_campaign=mar08bEmail
+ - Initially I did not give the sarrison user the right to create DBs. To do this, I had to run the following from the postgres user:
+   - ALTER USER sarrison CREATEDB;
+
+
+To Do's:
+X  - Add bio's to all members of the wedding party
+X  - Add a quiz.
+X  - add quiz question suggestions.
+X  - Make quiz questions versionable.
+X  - Update trivia question field to make quiz drop down box.
+X  - Correct quiz questions.
+X  - Make quiz attempts able to be exluded from calculations.
+X  - Make admin sections collapseable
+X  - add date to guestbook entries.
+X  - Change login page photos.
+X  - Add photos to Sara's Bio and Proposal
+X  - Add spacing to accomadations and activities.
+X  - Add pictures to photo album
+X  - Add note to accomodations that they book up fast so hurry
+X  - Add price ranges to accomodations
+  - Add a schedule of events
+  - Add soundtrack
+  - Add map of key points in the carmel area.
+X  - Add flight/travel information.
+X  - add rsvp functionality.
+X  - Add a video album

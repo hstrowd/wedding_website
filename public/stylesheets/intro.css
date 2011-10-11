@@ -1,0 +1,34 @@
+#intro_box {
+    width: 600px;
+    margin: 5% auto;
+}
+
+#main_body {
+    height: 100%;
+    background: none repeat scroll 0 0 #443322;
+    border: 1.5px solid #DDCC99;
+}
+
+#welcome_text {
+    margin: 10px 20px;
+}
+
+#login {
+    text-align: center;
+    min-height: 150px;
+    padding: 20px;
+    color: #FFFFFF;
+}
+
+#notice {
+    width: 450px;
+    margin: 0 75px;
+    color: #FDFF66;
+    font-size: 18px;
+    background-color: #B75353;
+    opacity: .7;
+    border: 1px solid #FF2C2C;
+}
+#error {
+    color:red;
+}

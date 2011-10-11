@@ -1,0 +1,38 @@
+<% content_for(:title) do %>
+  <div class="page_title"><%= image_tag("titles/#{@quiz.internal_name}(48).png") %></div>
+<% end %>
+<div class="instructions">
+  Answer each of the following questions and click the submit button at the bottom.
+</div>
+
+
+<div class="trivia_questions">
+  <%= form_tag(:controller => 'quizzes', :action => 'score') %>
+  <%= hidden_field_tag(:quiz_id, @quiz.id) %>
+
+  <ol>
+    <% @quiz.trivia_questions.each do |question| %>
+      <li>
+	<%= question.question %>
+	<div class="choices">
+	  <% field_type = question.select_multiple? ? :check_boxes : :radio_buttons %>
+          <% question.choices.each_with_index do |answer, index| %>
+	    <div class="choice">
+	      <% case field_type
+		 when :radio_buttons %>
+	        <%= radio_button_tag("question#{question.id}", answer, (index == 0), :required => true) %>
+		<%= label_tag("question#{question.id}_#{index}", answer) %>
+	      <% else %>
+		<%= check_box_tag("question#{question.id}[]", answer) %>
+		<%= label_tag("question#{question.id}_#{index}", answer) %>
+	      <% end %>
+	    </div>
+          <% end %>
+        </div>
+      </li>
+    <% end %>
+  </ol>
+
+  <%= submit_tag('Calculate Score') %>
+</div>
+

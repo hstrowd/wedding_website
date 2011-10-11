@@ -1,0 +1,18 @@
+<% content_for(:title) do %>
+  <div class="page_title"><%= image_tag('titles/registries(48).png') %></div>
+<% end %>
+
+<div>
+  Check out our online registries at the following retailers:
+</div>
+
+<br/>
+
+<div class="note">
+  To reduce our carbon footprint, we request that you not include gift wrapping in your orders. For gifts that are brought to the wedding, please wrap in some form of recycled paper (e.g. newspaper, used wrapping paper, etc).
+</div>
+
+<% registries_info.each do |info| %>
+  <div class="registry_retailer"><%= link_to(image_tag("registries/#{info[:retailer]}_logo.png"), info[:url], :target => '_blank') %></div>
+<% end %>
+

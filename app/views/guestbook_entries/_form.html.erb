@@ -1,0 +1,37 @@
+<% form_for(@entry) do |f|%>
+  <table class="guestbook_entry_form">
+    <tr>
+      <td class="label"><%= f.label 'name:*' %></td>
+      <td><%= f.text_field :author, :required => true %></td>
+    </tr>
+
+    <tr>
+      <td class="label"><%= f.label 'email:' %></td>
+      <td><%= f.text_field :email, :required => false %></td>
+    </tr>
+
+    <tr>
+      <td class="label"><%= f.label 'title:*' %></td>
+      <td><%= f.text_field :title, :required => true %></td>
+    </tr>
+
+    <tr>
+      <td class="label"><%= f.label 'message:*' %></td>
+      <td><%= f.text_area :message, :rows => 5, :required => true %></td>
+    </tr>
+
+    <% if(@entry.new_record?) %>
+      <%= f.hidden_field :published %>
+    <% else %>
+      <tr>
+        <td class="label"><%= f.label 'published:*' %></td>
+        <td><%= f.check_box :published, :hidden => @entry.new_record? %></td>
+      </tr>
+    <% end %>
+
+    <tr>
+      <td class="label"></td>
+      <td><%= f.submit %></td>
+    </tr>
+  </table>
+<% end %>

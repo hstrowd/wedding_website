@@ -1,0 +1,238 @@
+<% content_for(:head) do %>
+  <%= stylesheet_link_tag "admin" %>
+  <script language="javascript" type="text/javascript">
+    function toggleSection(label, content)
+    {
+        var expand = (content.style.display=="none");
+        content.style.display = (expand ? "block" : "none");
+
+        var image = label.childNodes[1];
+        image.src = image.src
+            .split(expand ? "expand.gif" : "collapse.gif")
+            .join(expand ? "collapse.gif" : "expand.gif");
+    }
+  </script>
+<% end %>
+
+<div class="admin_page">
+
+  <div id="quiz_attempts_container" class="collapsible_container">
+    <div class="admin_label"  onClick="toggleSection(this, this.nextElementSibling)">
+      <%= image_tag('expand.gif', :class => 'expansion_icon') %>
+      <h1>Users</h1>
+    </div>
+    <div class="admin_content" style="display: none;">
+      <table>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Roles</th>
+          <th>Enabled</th>
+        </tr>
+        <% @users.each do |user| %>
+          <tr>
+            <td><%= user.id %></td>
+            <td><%= link_to(user.name, edit_user_path(user)) %></td>
+            <td><%= user.roles.collect{|role| role.name}.join(', ') %></td>
+            <td><center><%= user.enabled %></center></td>
+          </tr>
+        <% end %>
+      </table>
+      <br/>
+      <%= link_to("Create new user", new_user_path) %>
+    </div>
+  </div>
+
+  <div id="quiz_attempts_container" class="collapsible_container">
+    <div class="admin_label"  onClick="toggleSection(this, this.nextElementSibling)">
+      <%= image_tag('expand.gif', :class => 'expansion_icon') %>
+      <h1>Roles</h1>
+    </div>
+    <div class="admin_content" style="display: none;">
+      <table>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Description</th>
+        </tr>
+        <% @roles.each do |role| %>
+          <tr>
+            <td><%= role.id %></td>
+            <td><%= link_to(role.name, edit_role_path(role)) %></td>
+            <td><%= role.description %></td>
+          </tr>
+        <% end %>
+      </table>
+      <br/>
+      <%= link_to("Create new role", new_role_path) %>
+    </div>
+  </div>
+
+  <div id="quiz_attempts_container" class="collapsible_container">
+    <div class="admin_label"  onClick="toggleSection(this, this.nextElementSibling)">
+      <%= image_tag('expand.gif', :class => 'expansion_icon') %>
+      <h1>Guestbook Entries</h1>
+    </div>
+    <div class="admin_content" style="display: none;">
+      <%= form_tag(update_published_statuses_guestbook_entries_path) do %>
+        <table>
+          <tr>
+            <th>ID</th>
+            <th>Author</th>
+            <th>Email</th>
+            <th>Title</th>
+            <th>Published</th>
+          </tr>
+          <% @guestbook_entries.each do |entry| %>
+            <tr>
+              <td><%= entry.id %></td>
+              <td><%= entry.author %></td>
+              <td><%= entry.email %></td>
+              <td><%= link_to(entry.title, edit_guestbook_entry_path(entry)) %></td>
+              <td>
+    	    <center>  
+    	      <%= hidden_field_tag("entry#{entry.id}[published]", false) %>
+    	      <%= check_box_tag("entry#{entry.id}[published]", true, entry.published) %>
+    	    </center>
+    	  </td>
+            </tr>
+          <% end %>
+        </table>
+        <br/>
+        <%= submit_tag('Set Visibilities') %>
+      <% end %>
+    </div>
+  </div>
+
+  <div id="quiz_attempts_container" class="collapsible_container">
+    <div class="admin_label"  onClick="toggleSection(this, this.nextElementSibling)">
+      <%= image_tag('expand.gif', :class => 'expansion_icon') %>
+      <h1>Quizzes</h1>
+    </div>
+    <div class="admin_content" style="display: none;">
+      <table>
+        <tr>
+          <th>ID</th>
+          <th>Title</th>
+          <th>Weight</th>
+          <th>Enabled Questions</th>
+        </tr>
+        <% @quizzes.each do |quiz| %>
+          <tr>
+            <td><%= quiz.id %></td>
+            <td><%= link_to(quiz.title, edit_quiz_path(quiz)) %></td>
+            <td><center><%= quiz.weight %></center></td>
+            <td><center><%= quiz.trivia_questions.size %></center></td>
+          </tr>
+        <% end %>
+      </table>
+      <br/>
+      <%= link_to("Create new quiz", new_quiz_path) %>
+    </div>
+  </div>
+
+  <div id="quiz_attempts_container" class="collapsible_container">
+    <div class="admin_label"  onClick="toggleSection(this, this.nextElementSibling)">
+      <%= image_tag('expand.gif', :class => 'expansion_icon') %>
+      <h1>Quiz Questions</h1>
+    </div>
+    <div class="admin_content" style="display: none;">
+      <%= form_tag(update_statuses_trivia_questions_path) do %>
+        <% @quizzes.each do |quiz| %>
+    
+          <h2><%= quiz.title %></h2>
+    
+          <table>
+            <tr>
+      	<th>ID</th>
+      	<th>Question</th>
+      	<th>Weight</th>
+      	<th>Enabled</th>
+            </tr>
+            <% quiz.current_trivia_questions.each do |question| %>
+      	  <tr>
+                <td><%= question.id %></td>
+                <td><%= link_to(question.question, edit_trivia_question_path(question)) %></td>
+                <td><center><%= question.weight %></center></td>
+                <td>
+      	      <center>
+      		<%= hidden_field_tag("question#{question.id}[enabled]", false) %>
+      		<%= check_box_tag("question#{question.id}[enabled]", true, question.enabled) %>
+      	      </center>
+      	    </td>
+      	  </tr>
+            <% end %>
+          </table>
+        <% end %>
+        <br/>
+        <%= submit_tag("Set Statuses") %> | <%= link_to("Create new quiz question", new_trivia_question_path) %>
+      <% end %>
+    </div>
+  </div>
+
+  <div id="quiz_attempts_container" class="collapsible_container">
+    <div class="admin_label"  onClick="toggleSection(this, this.nextElementSibling)">
+      <%= image_tag('expand.gif', :class => 'expansion_icon') %>
+      <h1>Quiz Attempts</h1>
+    </div>
+    <div class="admin_content" style="display: none;">
+      <%= form_tag(update_exclusions_quiz_attempts_path) do %>
+        <% @quizzes.each do |quiz| %>
+  
+  	<h2><%= quiz.title %></h2>
+  
+  	<table>
+            <tr>
+      	    <th>ID</th>
+      	    <th>Date</th>
+      	    <th>Score</th>
+      	    <th>Grade</th>
+      	    <th>Exclude</th>
+            </tr>
+            <% quiz.quiz_attempts.each do |attempt| %>
+      	    <tr>
+                <td><%= attempt.id %></td>
+                <td><%= attempt.created_at.to_date %></td>
+                <td><center><%= (attempt.score * 100).round %>%</center></td>
+                <td><center><%= attempt.grade %></center></td>
+                <td>
+      		<center>
+      		  <%= hidden_field_tag("quiz_attempt#{attempt.id}[exclude]", false) %>
+      		  <%= check_box_tag("quiz_attempt#{attempt.id}[exclude]", true, attempt.exclude) %>
+      		</center>
+      	      </td>
+      	    </tr>
+            <% end %>
+          </table>
+        <% end %>
+        <br/>
+        <%= submit_tag("Set Exclusions") %>
+      <% end %>
+    </div>
+  </div>
+
+  <div id="quiz_attempts_container" class="collapsible_container">
+    <div class="admin_label"  onClick="toggleSection(this, this.nextElementSibling)">
+      <%= image_tag('expand.gif', :class => 'expansion_icon') %>
+      <h1>Suggested Quiz Questions</h1>
+    </div>
+    <table class="admin_content" style="display: none;">
+      <tr>
+        <th>ID</th>
+        <th>Author</th>
+        <th>Email</th>
+        <th>Suggested Question</th>
+        <th>Suggested Answer</th>
+      </tr>
+      <% @suggested_questions.each do |suggested_question| %>
+        <tr>
+          <td><%= suggested_question.id %></td>
+          <td><%= suggested_question.author %></td>
+          <td><%= suggested_question.email %></td>
+          <td><%= suggested_question.suggested_question %></td>
+          <td><%= suggested_question.suggested_answer %></td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
